@@ -1,6 +1,13 @@
 import * as React from 'react'
 import { Platform, StyleSheet, Text, View } from 'react-native'
 
+import '../Config/Reactotron'
+
+import Store from '../Config/Store'
+
+// import Immutable from 'seamless-immutable'
+// console.tron(Immutable)
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n Cmd+D or shake for dev menu',
   android:
@@ -11,6 +18,10 @@ export interface Props {}
 export interface State {}
 
 export class App extends React.Component<Props, State> {
+  componentDidMount = () => {
+    this.store = Store()
+  }
+
   render() {
     return (
       <View style={styles.container}>
